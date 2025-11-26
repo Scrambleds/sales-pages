@@ -1,10 +1,21 @@
 # sales-pages
 
+## Create components guideline example
 
-#### Create components guideline example ####
+```bash
+ ng generate component modules/cart/cart-detail
+```
 
-# ng generate component modules/cart/cart-detail
+## Build Project
 
-#### Run local #####
+```bash
+cd .\sales-pages\
 
-# ng serve
+npm install
+```
+
+## Run as local
+
+```bash
+ng serve
+```
