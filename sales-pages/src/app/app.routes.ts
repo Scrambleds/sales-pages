@@ -7,11 +7,18 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'cart',
+        path: 'Cart',
         loadComponent: () =>
           import('../app/modules/cart/cart-detail/cart-detail.component').then(
             (m) => m.CartDetailComponent
           ),
+      },
+      {
+        path: 'ProductDetail',
+        loadComponent: () =>
+          import(
+            '../app/modules/product/product-detail/product-detail.component'
+          ).then((m) => m.ProductDetailComponent),
       },
     ],
   },
