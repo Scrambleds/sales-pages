@@ -20,6 +20,13 @@ export const routes: Routes = [
             '../app/modules/product/product-detail/product-detail.component'
           ).then((m) => m.ProductDetailComponent),
       },
+      {
+        path: 'TestPath',
+        loadComponent: () =>
+          import(
+            '../app/modules/test/test.component'
+          ).then((m) => m.TestComponent),
+      },
     ],
   },
 ];

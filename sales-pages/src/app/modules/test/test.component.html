@@ -1,0 +1,53 @@
+<div class="parent">
+    <h2>Test Signals</h2>
+
+    <hr>
+
+    <h2>Checkout Simulation</h2>
+    <div class="checkout-container">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" [checked]="allSelected()" (change)="toggleSelectAll($event)">
+                    </th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (product of products(); track product.id) {
+                    <tr [class.selected]="product.selected">
+                        <td>
+                            <input type="checkbox" [checked]="product.selected" (change)="toggleProduct(product.id)">
+                        </td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price | currency:'THB':'symbol':'1.0-0' }}</td>
+                        <td>
+                            <div class="qty-control">
+                                <button (click)="updateQuantity(product.id, -1)">-</button>
+                                <span>{{ product.quantity }}</span>
+                                <button (click)="updateQuantity(product.id, 1)">+</button>
+                            </div>
+                        </td>
+                        <td>{{ product.price * product.quantity | currency:'THB':'symbol':'1.0-0' }}</td>
+                        <td>
+                            <button class="delete-btn" (click)="removeProduct(product.id)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right">Total Price:</td>
+                    <td colspan="2" class="total-price">{{ totalPrice() | currency:'THB':'symbol':'1.0-0' }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

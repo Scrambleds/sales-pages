@@ -3,6 +3,7 @@
   <header class="app-header">
     <div class="logo-area">
       <div class="logo">E-Commerce Shop</div>
+      <small style="color: rgb(0, 21, 250); font-size: 0.8em; margin-left: 10px;">[{{ renderMode }}]</small>
     </div>
     
     <div class="search-bar-container">
@@ -16,7 +17,7 @@
         <i class="bi bi-person-circle"></i> </a>
       
       <a routerLink="/cart" class="icon-link cart-icon">
-        <i class="bi bi-cart-fill"></i> <span class="cart-badge">3</span> </a>
+        <i class="bi bi-cart-fill"></i> <span class="cart-badge">{{ cartCount() }}</span> </a>
       
       <button (click)="toggleSidebar()" class="menu-toggle-button">
         <i class="bi bi-list"></i> </button>
