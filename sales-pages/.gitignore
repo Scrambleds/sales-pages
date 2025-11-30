@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 
-*-lock.json
+sales-pages/package-lock.json
