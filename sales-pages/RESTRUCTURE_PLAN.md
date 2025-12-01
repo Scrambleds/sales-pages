@@ -1,4 +1,4 @@
-# Folder Restructure Plan - Venio.Web Style
+# Folder Restructure Plan - SalesPages.Web Style
 
 ## Current Structure
 ```
@@ -17,7 +17,7 @@ src/app/
         └── navbar/
 ```
 
-## New Structure (Venio.Web Style)
+## New Structure (SalesPages.Web Style)
 ```
 src/app/
 ├── core/
@@ -56,7 +56,7 @@ src/app/
 │       ├── directives/
 │       ├── pipes/
 │       └── models/
-├── assets/                         # Will include Gofive assets
+├── assets/                         # Will include libs assets
 │   ├── data/                      # Customer GrapesJS JSON
 │   ├── images/
 │   └── styles/
@@ -83,19 +83,19 @@ src/app/
 - Each module will have its own routes file
 - Main app.routes.ts will import from module routes
 
-### Step 4: Add Gofive Libraries (when available)
-- `@gofive/angular-common` - Common utilities
-- Gofive Asset - UI components and assets
+### Step 4: Add libs Libraries (when available)
+- `@libs/angular-common` - Common utilities
+- libs Asset - UI components and assets
 
 ## Benefits
 1. **Better Organization**: Each module is self-contained
 2. **Lazy Loading**: Each module can be lazy-loaded
 3. **Scalability**: Easy to add new modules
 4. **Team Collaboration**: Different teams can work on different modules
-5. **Gofive Integration**: Ready for Gofive libraries
+5. **libs Integration**: Ready for libs libraries
 
 ## Next Steps
-1. Confirm this structure matches your Venio.Web pattern
+1. Confirm this structure matches your SalesPages.Web pattern
 2. Begin migration
-3. Set up Gofive library access (npm token or local link)
-4. Integrate Gofive components
+3. Set up libs library access (npm token or local link)
+4. Integrate libs components

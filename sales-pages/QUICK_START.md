@@ -170,7 +170,7 @@ src/app/features/default-pages/auth/auth.component.scss
 # Build with SSR
 npm run build:ssr
 
-# Output will be in dist/venio-sales-page/
+# Output will be in dist/sales-page/
 ```
 
 ## Serving Production Build

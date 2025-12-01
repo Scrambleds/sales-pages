@@ -272,7 +272,7 @@ npm run build:ssr
 ```
 
 ### Deploy
-Upload `dist/venio-sales-page/` to your server.
+Upload `dist/sales-page/` to your server.
 
 ### Configure
 - Set environment variables

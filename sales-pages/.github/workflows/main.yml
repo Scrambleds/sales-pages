@@ -1,4 +1,4 @@
-name: "[Venio Sales Page] GitOps Pipeline 🚀"
+name: "[SalesPages] GitOps Pipeline 🚀"
 
 on:
   workflow_dispatch:
@@ -30,10 +30,10 @@ on:
         default: false
 jobs:
   acr-build:
-    uses: GofiveCorp/gofive-gitops/.github/workflows/acr-build.yaml@v4
+    uses: Salespages/SalesPages-gitops/.github/workflows/acr-build.yaml@v4
     with:
       environment: "${{ github.event.inputs.build-configuration }}"
-      image: 'venio/venio-sales-page'
+      image: 'salespages/salespages-sales-page'
       tag: "${{ github.event.inputs.build-configuration }}-${{ github.run_id }}"
       build_args: "BUILD_CONFIGURATION=${{ github.event.inputs.build-configuration }}"
 
@@ -44,11 +44,11 @@ jobs:
 
   update-gitops:
     needs: [acr-build]
-    uses: GofiveCorp/gofive-gitops/.github/workflows/update-gitops.yaml@v4
+    uses: Salespages/SalesPages-gitops/.github/workflows/update-gitops.yaml@v4
     with:
-      repository: 'venio'
-      application: 'venio/venio-sales-page'
-      application_label: 'Venio Sales Page'
+      repository: 'salespages'
+      application: 'salespages/salespages-sales-page'
+      application_label: 'salespages Sales Page'
       environment: ${{ github.event.inputs.deploy-environment }}
       tag: ${{ needs.acr-build.outputs.tag }}
       skip_pr: ${{ github.event.inputs.auto-deploy == 'true' }}
