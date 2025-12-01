@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './core/components/layout/layout.component';
+import { LayoutComponent } from './modules/layout/layout.component';
 
 export const routes: Routes = [
+  {
+      path: 'auth',
+      loadChildren: () => import('./modules/auth/auth.routes').then(m => m.authRoutes)
+  },
   {
     path: '',
     component: LayoutComponent,
@@ -19,13 +23,6 @@ export const routes: Routes = [
           import(
             '../app/modules/product/product-detail/product-detail.component'
           ).then((m) => m.ProductDetailComponent),
-      },
-      {
-        path: 'TestPath',
-        loadComponent: () =>
-          import(
-            '../app/modules/test/test.component'
-          ).then((m) => m.TestComponent),
       },
     ],
   },

@@ -1,0 +1,85 @@
+.login-logo {
+    width: 108px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.login-title {
+    color: var(--go5-input-text);
+}
+
+.login-desc {
+    color: var(--go5-text-color-11);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+.social-login {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #E5E7EB;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.social-button:hover {
+    background-color: #F9FAFB;
+}
+
+.social-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.login_policy {
+    margin-top: 40px;
+}
+
+.text-input{
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 10px 12px;
+gap: 10px;
+
+width: 368px;
+height: 40px;
+
+background: #FFFFFF;
+border: 1px solid #D2D2DA;
+border-radius: 6px;
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+}

@@ -1,0 +1,10 @@
+<div class="auth-container"
+     [style.background-image]="'url(' + backgroundImageUrl() + ')'">
+    <div class="auth-card">
+        <!-- <app-language-dropdown class="language-dropdown"/> -->
+        <app-login-form 
+            (submitForm)="handleLogin($event)" 
+            (socialLogin)="handleSocialLogin($event)">
+        </app-login-form>
+    </div>
+</div>

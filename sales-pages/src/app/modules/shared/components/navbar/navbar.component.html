@@ -1,0 +1,20 @@
+@if(isBrowser()){
+    <div class="navbar-container">
+      <div class="navbar-left">
+      </div>
+    
+      <div class="navbar-right">
+        <div class="cart-wrapper">
+            <div class="cart-icon-box">
+                <div class="cart-icon">
+                    <i class="bi bi-cart2" [style]=""></i>
+                </div>
+                <div class="cart-badge">
+                    <span class="badge-text">{{ cartItemCount() }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="go5-text-small sign-in-text">{{ loginText() }}</div>
+      </div>
+    </div>
+}

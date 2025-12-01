@@ -1,0 +1,9 @@
+{
+  "customerId": "default",
+  "theme": {
+    "primaryColor": "#667eea",
+    "secondaryColor": "#764ba2"
+  },
+  "siteName": "Default Store",
+  "siteDescription": "Multi-customer sales page platform"
+}

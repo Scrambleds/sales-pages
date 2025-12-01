@@ -1,0 +1,41 @@
+::ng-deep .language-dropdown { 
+    .go5-form-field-block {
+        border-radius: 100px !important;
+        min-height: 32px !important;
+    }
+
+    .go5-form-field-content-template {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .go5-form-field-content-template-suffix {
+        margin-left: 2px !important;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+
+        i {
+            font-size: 12px !important;
+        }
+    }
+
+    .go5-form-field-content-template-body {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+}
+    
+
+.go5-dropdown-item-label-infomation {
+    display: flex;
+    align-items: center;
+    color: var(--go5-button-secondary-default-text);
+
+    .go5-dropdown-item-image-label {
+        width: 18.125px;
+        height: 18.125px;
+        margin-right: 4px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+}

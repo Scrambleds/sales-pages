@@ -1,0 +1,20 @@
+<go5-dropdown-selection 
+    #langOption 
+    class="language-dropdown" 
+    [value]="currentLanguage()"
+    [dataSource]="langOptions" 
+    [category]="'primary'"
+    [width]="width()"
+    (changed)="onChangeLanguage($event.value)"
+    [allowShowRemove]="false" 
+    [allowFiltering]="false" 
+    data-testid="dropdown_single_option_language"
+>
+    <ng-template #valueTemplate let-data>
+        <div class="go5-dropdown-item-label-infomation">
+            <img class="go5-dropdown-item-image-label"
+                [src]="data.imageSelection">
+            <p class="go5-text-body"> {{ data.text }} </p>
+        </div>
+    </ng-template>
+</go5-dropdown-selection>
