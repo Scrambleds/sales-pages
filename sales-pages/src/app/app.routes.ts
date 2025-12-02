@@ -3,8 +3,11 @@ import { LayoutComponent } from './modules/layout/layout.component';
 
 export const routes: Routes = [
   {
-      path: 'auth',
-      loadComponent: () => import('../app/modules/auth/components/login/auth.component').then(m => m.AuthComponent)
+    path: 'auth',
+    loadComponent: () =>
+      import('../app/modules/auth/components/login/auth.component').then(
+        (m) => m.AuthComponent
+      ),
   },
   {
     path: '',
@@ -13,7 +16,7 @@ export const routes: Routes = [
       {
         path: '',
         redirectTo: 'product',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'cart',
@@ -28,6 +31,13 @@ export const routes: Routes = [
           import(
             '../app/modules/product/product-form/product-form.component'
           ).then((m) => m.ProductFormComponent),
+      },
+      {
+        path: 'product-detail/:id',
+        loadComponent: () =>
+          import(
+            '../app/modules/product/product-detail/product-detail.component'
+          ).then((m) => m.ProductDetailComponent),
       },
     ],
   },
