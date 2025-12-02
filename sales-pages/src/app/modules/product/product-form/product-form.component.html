@@ -1,0 +1,39 @@
+<div class="container my-5 shop-page-container">
+    <div class="row">
+        
+        <div class="col-12 col-md-12">
+            
+            <div class="control-bar-wrapper mb-3">
+                <div class="control-bar d-flex justify-content-between align-items-center p-2 rounded">
+                    
+                    <span class="text-muted total-items-count fw-bold">
+                        ทั้งหมด {{ allProducts.length }} รายการ
+                    </span>
+                    
+                    <page-settings 
+                        [selectedLimit]="itemsPerPage"
+                        [limits]="pageSizeOptions"
+                        (itemsPerPageChanged)="handleItemsPerPageChange($event)">
+                    </page-settings>
+                </div>
+            </div>
+            
+            <app-productlist 
+                [products]="allProducts | paginate: {
+                    itemsPerPage: itemsPerPage,
+                    currentPage: currentPage 
+                }">
+            </app-productlist> 
+            
+            <div class="d-flex justify-content-center mt-4">
+                <pagination-controls 
+                    (pageChange)="handlePageChange($event)"
+                    previousLabel="ก่อนหน้า"
+                    nextLabel="ถัดไป"
+                    >
+                    </pagination-controls>
+            </div>
+
+        </div>
+    </div>
+</div>

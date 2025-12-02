@@ -6,45 +6,35 @@
 
     <form>
         <div class="mb-3">
-            <input 
-                type="text" 
-                [formControlName]="'username'" 
-                placeholder="Username or Email"
-                class="form-control" 
-                aria-label="Username or Email"
-            >
+            <input type="text" placeholder="Username or Email" class="form-control"
+                aria-label="Username or Email">
         </div>
 
         <div class="text-center mb-5">
-            <button
-                type="submit"
-                class="btn btn-primary btn-continue btn-lg w-100"
-            >
+            <button type="submit" class="btn btn-primary btn-continue btn-lg w-100">
                 ดำเนินการต่อ
             </button>
-        </div> 
+        </div>
 
         <div class="divider">
             <span class="divider-text bg-white">หรือ เข้าใช้งานผ่าน</span>
         </div>
 
         <div class="social-login d-flex justify-content-center mt-4 mb-4">
-            <button class="social-button google mx-2" (click)="onSocialLogin('google')">
-                <img [src]="'assets/images/socials/google.svg'" alt="Google">
+            <button type="button" class="social-button google mx-2" (click)="onSocialLogin('google')">
+                <img [src]="googleIcon()" alt="Google">
             </button>
-            <button class="social-button facebook mx-2" (click)="onSocialLogin('facebook')">
-                <img [src]="'assets/images/socials/facebook.svg'" alt="Facebook">
+            <button type="button" class="social-button facebook mx-2" (click)="onSocialLogin('facebook')">
+                <img [src]="facebookIcon()" alt="Facebook">
             </button>
-            <button class="social-button line mx-2" (click)="onSocialLogin('line')">
-                <img [src]="'assets/images/socials/line.svg'" alt="Line">
+            <button type="button" class="social-button line mx-2" (click)="onSocialLogin('line')">
+                <img [src]="lineIcon()" alt="Line">
             </button>
         </div>
     </form>
 
-    <p class="text-center text-policy login_policy">
-        เมื่อดำเนินการต่อ จะถือว่าคุณได้อ่านและยอมรับ
-        ข้อตกลงและเงื่อนไข และ นโยบายความเป็นส่วนตัว<br>
-        <a href="#" class="fw-bold">ข้อตกลงและเงื่อนไข</a> และ <a href="#"
-            class="fw-bold">นโยบายความเป็นส่วนตัว</a>
+    <p class="text-center text-policy login_policy">เมื่อดำเนินการต่อ จะถือว่าคุณได้อ่านและยอมรับข้อตกลงและเงื่อนไข และ
+        นโยบายความเป็นส่วนตัว<br>
+        <a href="#" class="fw-bold">ข้อตกลงและเงื่อนไข</a> และ <a href="#" class="fw-bold">นโยบายความเป็นส่วนตัว</a>
     </p>
 </div>

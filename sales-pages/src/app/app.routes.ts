@@ -4,25 +4,30 @@ import { LayoutComponent } from './modules/layout/layout.component';
 export const routes: Routes = [
   {
       path: 'auth',
-      loadChildren: () => import('./modules/auth/auth.routes').then(m => m.authRoutes)
+      loadComponent: () => import('../app/modules/auth/components/login/auth.component').then(m => m.AuthComponent)
   },
   {
     path: '',
     component: LayoutComponent,
     children: [
       {
-        path: 'Cart',
+        path: '',
+        redirectTo: 'product',
+        pathMatch: 'full'
+      },
+      {
+        path: 'cart',
         loadComponent: () =>
           import('../app/modules/cart/cart-detail/cart-detail.component').then(
             (m) => m.CartDetailComponent
           ),
       },
       {
-        path: 'ProductDetail',
+        path: 'product',
         loadComponent: () =>
           import(
-            '../app/modules/product/product-detail/product-detail.component'
-          ).then((m) => m.ProductDetailComponent),
+            '../app/modules/product/product-form/product-form.component'
+          ).then((m) => m.ProductFormComponent),
       },
     ],
   },

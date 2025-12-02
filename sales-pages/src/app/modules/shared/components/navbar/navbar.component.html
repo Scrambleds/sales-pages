@@ -14,7 +14,9 @@
                 </div>
             </div>
         </div>
-        <div class="go5-text-small sign-in-text">{{ loginText() }}</div>
+        <div routerLink="/auth" (click)="onClick()" class="go5-text-small sign-in-text">
+            {{ loginText() }}
+        </div>
       </div>
     </div>
 }

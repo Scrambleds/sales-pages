@@ -1,5 +1,6 @@
-import { Component, computed, Inject, Injector, PLATFORM_ID, signal } from '@angular/core';
+import { Component, computed, Inject, Injector, PLATFORM_ID, signal, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 import { Language } from '../../../../core/enums/lanuage.enum';
 
 @Component({
@@ -18,11 +19,18 @@ export class StoreNavbarComponent {
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
-        private injector: Injector
+        private injector: Injector,
+        private router: Router,
+        private cdr: ChangeDetectorRef
     ) {
     }
 
     async ngOnInit(): Promise<void> {
         //initialize app only in browser
+    }
+
+    onClick(){
+        this.router.navigate(['/auth'])
+        this.cdr.detectChanges();
     }
 }

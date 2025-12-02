@@ -1,0 +1,42 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-6 col-md-4 col-lg-3 mb-4" *ngFor="let product of products">
+            <div class="product-card shadow-sm">
+                <div class="product-image-container">
+                    
+                    <div 
+                        class="discount-badge" 
+                        *ngIf="product.discountPercentage && product.discountPercentage > 0"
+                    >
+                    -{{ product.discountPercentage | number:'1.0-0' }}%</div>
+                    
+                    <img [src]="product.thumbnail" [alt]="product.title" class="product-image" loading="lazy">
+                </div>
+                
+                <div class="product-details p-3">
+                    <h3 class="product-title">{{ product.title }}</h3>
+                    
+                    <div class="product-price-section mt-1 d-flex align-items-center">
+                        
+                        <span class="price-sale me-2">
+                            ${{ getSalePrice(product) | number:'1.2-2' }}
+                        </span>
+                        
+                        <span class="price-original">
+                            <del>${{ product.price | number:'1.2-2' }}</del>
+                        </span>
+                    </div>
+                    
+                    <div class="product-rating mt-2 d-flex align-items-center">
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <span class="text-muted small">{{ product.rating | number:'1.1-1' }}</span>
+                    </div>
+                    
+                    <p class="text-success small mt-2 mb-0">
+                        In Stock ({{ product.stock }} items)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
