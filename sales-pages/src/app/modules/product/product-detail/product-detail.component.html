@@ -1,4 +1,4 @@
-<div class="container my-5" *ngIf="product">
+<div class="container my-5 product-detail-theme" *ngIf="product">
   <div class="row">
     <div class="col-md-6">
       <div class="product-image-container">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h1 class="display-5">{{ product.title }}</h1>
+      <h1 class="display-5 product-title">{{ product.title }}</h1>
       <p class="text-muted">{{ product.brand }} | SKU: {{ product.sku }}</p>
 
       <div class="rating mb-3">
@@ -26,41 +26,31 @@
           >({{ product.reviews.length }} reviews)</span
         >
       </div>
-
       <div class="price-section mb-4">
-        <h2 class="text-danger d-inline me-3">
+        <h2 class="price-sale d-inline me-3">
           ${{ getSalePrice(product) | number : "1.2-2" }}
         </h2>
-        <span class="text-muted text-decoration-line-through fs-5"
-          >${{ product.price | number : "1.2-2" }}</span
+        <div
+          *ngIf="product.discountPercentage && product.discountPercentage > 0"
+          class="d-inline"
         >
-        <span class="badge bg-danger ms-2"
-          >-{{ product.discountPercentage }}%</span
-        >
-      </div>
-
-      <p class="lead">{{ product.description }}</p>
-
-      <div class="meta-info mb-4">
-        <p>
-          <strong>Availability:</strong>
-          <span
-            [class.text-success]="product.stock > 0"
-            [class.text-danger]="product.stock === 0"
-            >{{ product.availabilityStatus }}</span
+          <span class="price-original text-decoration-line-through fs-5"
+            >${{ product.price | number : "1.2-2" }}</span
           >
-        </p>
-        <p><strong>Shipping:</strong> {{ product.shippingInformation }}</p>
-        <p><strong>Warranty:</strong> {{ product.warrantyInformation }}</p>
-        <p><strong>Return Policy:</strong> {{ product.returnPolicy }}</p>
+          <span class="badge discount-badge ms-2"
+            >-{{ product.discountPercentage }}%</span
+          >
+        </div>
       </div>
+      <div class="divider"></div>
       <div class="d-flex align-items-center mb-4">
-        <span class="me-3">Quantity:</span>
+        <span class="me-3">จำนวน:</span>
         <div class="input-group" style="width: 130px">
           <button
             class="btn btn-outline-secondary"
             type="button"
             (click)="decrementQuantity()"
+            [disabled]="quantity() <= 1"
           >
             -
           </button>
@@ -78,12 +68,37 @@
             +
           </button>
         </div>
+        <span class="me-3 mx-2">คลัง: {{ product.stock }}</span>
       </div>
       <div class="actions d-grid gap-2 d-md-block">
-        <button class="btn btn-primary btn-lg me-md-2" (click)="addToCart()">
-          Add to Cart
+        <button
+          class="btn btn-outline-primary btn-lg me-md-2"
+          (click)="addToCart()"
+        >
+          <i class="bi bi-cart2" [style]=""></i>
+          เพิ่มไปยังรถเข็น
         </button>
-        <button class="btn btn-outline-secondary btn-lg">Buy Now</button>
+        <button class="btn btn-primary btn-lg">ซื้อสินค้า</button>
+      </div>
+      <div class="divider"></div>
+      <div class="product-detail-section">
+        <div *ngIf="product.description">
+          <h4>รายละเอียดสินค้า</h4>
+          <p class="lead">{{ product.description }}</p>
+        </div>
+        <div class="meta-info mb-4">
+          <p>
+            <strong>Availability:</strong>
+            <span
+              [class.text-success]="product.stock > 0"
+              [class.text-danger]="product.stock === 0"
+              >{{ product.availabilityStatus }}</span
+            >
+          </p>
+          <p><strong>Shipping:</strong> {{ product.shippingInformation }}</p>
+          <p><strong>Warranty:</strong> {{ product.warrantyInformation }}</p>
+          <p><strong>Return Policy:</strong> {{ product.returnPolicy }}</p>
+        </div>
       </div>
     </div>
   </div>
