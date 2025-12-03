@@ -12,7 +12,9 @@ export interface CartItem {
 export class CartService {
   cartItems = signal<CartItem[]>([]);
 
-  totalItems = () => {};
+  totalItems = computed(() => {
+    return this.cartItems().reduce((total, item) => total + item.quantity, 0);
+  });
 
   totalPrice = () => {};
 
