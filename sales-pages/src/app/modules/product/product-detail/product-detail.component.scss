@@ -1,0 +1,98 @@
+.product-detail-theme {
+  .product-image-container {
+    position: relative;
+    height: max-content;
+    overflow: hidden;
+    background-color: #f8f9fa;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .discount-badge {
+    position: absolute;
+    z-index: 10;
+
+    background-color: #dc3545;
+    color: white;
+
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-title {
+    font-size: 20px;
+    font-weight: 600;
+
+    overflow: hidden;
+    line-height: 28px;
+    letter-spacing: 0px;
+  }
+  .product-title-sku {
+    font-size: 14px;
+    font-weight: 500;
+    height: 3em;
+    overflow: hidden;
+    line-height: 20px;
+    letter-spacing: 0px;
+  }
+
+  .product-price-section {
+    line-height: 1;
+  }
+
+  .price-sale {
+    color: #013cc5;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .price-original {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: normal;
+
+    del {
+      text-decoration: line-through;
+      text-decoration-color: #999;
+    }
+  }
+  .product-detail-section {
+    margin-top: 24px;
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .divider span {
+    background: #fff;
+    padding: 0 10px;
+  }
+
+  .cart-icon {
+    width: 16px;
+    height: 16px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+  }
+}

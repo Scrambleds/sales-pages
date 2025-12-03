@@ -33,7 +33,7 @@ export const routes: Routes = [
           ).then((m) => m.ProductFormComponent),
       },
       {
-        path: 'product-detail/:id',
+        path: ':id',
         loadComponent: () =>
           import(
             '../app/modules/product/product-detail/product-detail.component'

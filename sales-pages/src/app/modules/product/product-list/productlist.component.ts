@@ -44,6 +44,6 @@ export class ProductlistComponent implements OnInit {
   }
 
   viewDetail(id: number) {
-    this.router.navigate(['/product-detail', id]);
+    this.router.navigate(['/', id]);
   }
 }
