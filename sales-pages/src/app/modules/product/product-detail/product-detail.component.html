@@ -48,15 +48,12 @@
         <span class="me-3 mx-2">คลัง: {{ product.stock }}</span>
       </div>
 
-      <div class="actions d-grid gap-2 d-md-block">
-        <button
-          class="btn btn-outline-primary me-md-2 col-3"
-          (click)="addToCart()"
-        >
+      <div class="actions">
+        <button class="btn btn-outline-primary" (click)="addToCart()">
           <i class="bi bi-cart2"></i>
           เพิ่มไปยังรถเข็น
         </button>
-        <button class="btn btn-primary col-3">ซื้อสินค้า</button>
+        <button class="btn btn-primary">ซื้อสินค้า</button>
       </div>
 
       <div class="divider"></div>
@@ -84,7 +81,7 @@
       </div>
     </div>
   </div>
-  @if (0) {
+  @if (1) {
 
   <app-product-reviews [reviews]="product.reviews"></app-product-reviews>
   }

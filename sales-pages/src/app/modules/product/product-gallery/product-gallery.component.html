@@ -5,14 +5,14 @@
     width="500"
     height="500"
     priority
-    class="img-fluid rounded shadow-sm"
+    class="img-fluid"
   />
 </div>
 @if (images.length > 1) {
 <div class="row mt-2">
   @for (img of images; track img) {
-  <div class="col-3">
-    <img [src]="img" class="img-thumbnail" style="cursor: pointer" />
+  <div class="col-3 thumbnail-container">
+    <img [src]="img" class="img-thumbnail" />
   </div>
   }
 </div>

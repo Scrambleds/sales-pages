@@ -7,7 +7,12 @@ import { Review } from '../../../core/models/product/productlist.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './product-reviews.component.html',
+  styleUrl: './product-reviews.component.scss',
 })
 export class ProductReviewsComponent {
   @Input() reviews: Review[] = [];
+
+  getStars(count: number): number[] {
+    return Array.from({ length: Math.floor(count) }, (_, i) => i);
+  }
 }

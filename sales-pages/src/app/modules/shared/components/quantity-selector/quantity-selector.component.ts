@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './quantity-selector.component.html',
+  styleUrl: './quantity-selector.component.scss',
 })
 export class QuantitySelectorComponent {
   @Input() quantity: number = 1;

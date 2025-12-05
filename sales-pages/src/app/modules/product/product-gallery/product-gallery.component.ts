@@ -6,6 +6,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './product-gallery.component.html',
+  styleUrl: './product-gallery.component.scss',
 })
 export class ProductGalleryComponent {
   @Input() images: string[] = [];
