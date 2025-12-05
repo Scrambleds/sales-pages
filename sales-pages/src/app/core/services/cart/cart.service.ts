@@ -1,5 +1,6 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { Product } from '../../models/product/productlist.model';
+import { HttpClient } from '@angular/common/http';
 
 export interface CartItem {
   product: Product;
@@ -10,17 +11,43 @@ export interface CartItem {
   providedIn: 'root',
 })
 export class CartService {
-  cartItems = signal<CartItem[]>([]);
+  CartItems = signal<CartItem[]>([]);
+  CartItemsSelected = signal<CartItem[]>([]);
+  private http = inject(HttpClient);
+
+  startAutoReloadCart(intervalMs = 30000) {
+    setInterval(() => {
+      this.getCart();
+    }, intervalMs);
+  }
 
   totalItems = computed(() => {
-    return this.cartItems().reduce((total, item) => total + item.quantity, 0);
+    return this.CartItems().reduce((total, item) => total + item.quantity, 0);
   });
 
   totalPrice = () => {};
 
-  loadCart() {}
+  getCart() {
+    // Load cart from backend and store into local storage
+  }
 
-  addToCart(product: Product, quantity: number = 1) {}
+  addToCart(product: Product, quantity: number = 1) {
+    this.CartItems.update((items) => {
+      const isExisting = items.find((item) => item.product.id === product.id);
+      if (isExisting) {
+        return items.map((item) => {
+          if (item.product.id === product.id) {
+            return {
+              ...item,
+              quantity: item.quantity + quantity,
+            };
+          }
+          return item;
+        });
+      }
+      return [...items, { product, quantity }];
+    });
+  }
 
   removeFromCart(productId: number) {}
 

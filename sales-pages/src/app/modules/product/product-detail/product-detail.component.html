@@ -1,18 +1,11 @@
-<div class="container my-5 product-detail-theme" *ngIf="product">
+@if (product) {
+<div class="container my-5 product-detail-theme">
   <div class="row">
     <div class="col-md-6">
-      <div class="product-image-container">
-        <img
-          [src]="product.images[0]"
-          [alt]="product.title"
-          class="img-fluid rounded shadow-sm"
-        />
-      </div>
-      <div class="row mt-2" *ngIf="product.images.length > 1">
-        <div class="col-3" *ngFor="let img of product.images">
-          <img [src]="img" class="img-thumbnail" style="cursor: pointer" />
-        </div>
-      </div>
+      <app-product-gallery
+        [images]="product.images"
+        [title]="product.title"
+      ></app-product-gallery>
     </div>
     <div class="col-md-6">
       <h1 class="display-5 product-title">{{ product.title }}</h1>
@@ -26,14 +19,13 @@
           >({{ product.reviews.length }} reviews)</span
         >
       </div>
+
       <div class="price-section mb-4">
         <h2 class="price-sale d-inline me-3">
-          ${{ getSalePrice(product) | number : "1.2-2" }}
+          ${{ product | salePrice | number : "1.2-2" }}
         </h2>
-        <div
-          *ngIf="product.discountPercentage && product.discountPercentage > 0"
-          class="d-inline"
-        >
+        @if (product.discountPercentage && product.discountPercentage > 0) {
+        <div class="d-inline">
           <span class="price-original text-decoration-line-through fs-5"
             >${{ product.price | number : "1.2-2" }}</span
           >
@@ -41,51 +33,41 @@
             >-{{ product.discountPercentage }}%</span
           >
         </div>
+        }
       </div>
+
       <div class="divider"></div>
+
       <div class="d-flex align-items-center mb-4">
         <span class="me-3">จำนวน:</span>
-        <div class="input-group" style="width: 130px">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="decrementQuantity()"
-            [disabled]="quantity() <= 1"
-          >
-            -
-          </button>
-          <input
-            type="text"
-            class="form-control text-center"
-            [value]="quantity()"
-            readonly
-          />
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="incrementQuantity()"
-          >
-            +
-          </button>
-        </div>
+        <app-quantity-selector
+          [quantity]="quantity()"
+          (increase)="incrementQuantity()"
+          (decrease)="decrementQuantity()"
+        ></app-quantity-selector>
         <span class="me-3 mx-2">คลัง: {{ product.stock }}</span>
       </div>
+
       <div class="actions d-grid gap-2 d-md-block">
         <button
-          class="btn btn-outline-primary btn-lg me-md-2"
+          class="btn btn-outline-primary me-md-2 col-3"
           (click)="addToCart()"
         >
-          <i class="bi bi-cart2" [style]=""></i>
+          <i class="bi bi-cart2"></i>
           เพิ่มไปยังรถเข็น
         </button>
-        <button class="btn btn-primary btn-lg">ซื้อสินค้า</button>
+        <button class="btn btn-primary col-3">ซื้อสินค้า</button>
       </div>
+
       <div class="divider"></div>
+
       <div class="product-detail-section">
-        <div *ngIf="product.description">
+        @if (product.description) {
+        <div>
           <h4>รายละเอียดสินค้า</h4>
-          <p class="lead">{{ product.description }}</p>
+          <p class="lead product-detail">{{ product.description }}</p>
         </div>
+        }
         <div class="meta-info mb-4">
           <p>
             <strong>Availability:</strong>
@@ -102,27 +84,16 @@
       </div>
     </div>
   </div>
+  @if (0) {
 
-  <div class="row mt-5">
-    <div class="col-12">
-      <h3>Reviews</h3>
-      <div class="list-group">
-        <div class="list-group-item" *ngFor="let review of product.reviews">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ review.reviewerName }}</h5>
-            <small>{{ review.date | date }}</small>
-          </div>
-          <p class="mb-1">{{ review.comment }}</p>
-          <small class="text-warning">Rating: {{ review.rating }}/5</small>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-product-reviews [reviews]="product.reviews"></app-product-reviews>
+  }
 </div>
-
-<div class="container my-5 text-center" *ngIf="!product">
+} @else {
+<div class="container my-5 text-center">
   <div class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   <p class="mt-2">Loading product details...</p>
 </div>
+}

@@ -1,0 +1,19 @@
+<div class="input-group" style="width: 130px">
+  <button
+    class="btn btn-outline-secondary"
+    type="button"
+    (click)="decrement()"
+    [disabled]="quantity <= 1"
+  >
+    -
+  </button>
+  <input
+    type="text"
+    class="form-control text-center"
+    [value]="quantity"
+    readonly
+  />
+  <button class="btn btn-outline-secondary" type="button" (click)="increment()">
+    +
+  </button>
+</div>
