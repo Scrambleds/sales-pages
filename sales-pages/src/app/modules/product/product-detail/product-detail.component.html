@@ -1,19 +1,10 @@
-<div class="container my-5 product-detail-theme" *ngIf="product">
+@if (product){
+<div class="container my-5 product-detail-theme">
   <div class="row">
-    <div class="col-md-6">
-      <div class="product-image-container">
-        <img
-          [src]="product.images[0]"
-          [alt]="product.title"
-          class="img-fluid rounded shadow-sm"
-        />
-      </div>
-      <div class="row mt-2" *ngIf="product.images.length > 1">
-        <div class="col-3" *ngFor="let img of product.images">
-          <img [src]="img" class="img-thumbnail" style="cursor: pointer" />
-        </div>
-      </div>
-    </div>
+    <app-product-gallery
+      [images]="product.images"
+      [title]="product.title"
+    ></app-product-gallery>
     <div class="col-md-6">
       <h1 class="display-5 product-title">{{ product.title }}</h1>
       <p class="text-muted">{{ product.brand }} | SKU: {{ product.sku }}</p>
