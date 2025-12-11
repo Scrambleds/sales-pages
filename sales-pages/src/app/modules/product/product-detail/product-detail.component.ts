@@ -4,10 +4,21 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../../../core/models/product/productlist.model';
 import { ProductService } from '../../../core/services/product/productservice';
 import { CartService } from '../../../core/services/cart/cart.service';
+import { QuantitySelectorComponent } from '../../shared/components/quantity-selector/quantity-selector.component';
+import { ProductReviewsComponent } from '../product-reviews/product-reviews.component';
+import { ProductGalleryComponent } from '../product-gallery/product-gallery.component';
+import { SalePricePipe } from '../../shared/pipes/sale-price.pipe';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    QuantitySelectorComponent,
+    ProductReviewsComponent,
+    ProductGalleryComponent,
+    SalePricePipe,
+  ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
@@ -28,10 +39,6 @@ export class ProductDetailComponent implements OnInit {
         this.product = product;
       });
     }
-  }
-
-  getSalePrice(product: Product): number {
-    return product.price * (1 - product.discountPercentage / 100);
   }
 
   incrementQuantity() {

@@ -1,0 +1,43 @@
+.product-image-container {
+  position: relative;
+  height: max-content;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem; // rounded
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); // shadow-sm
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.thumbnail-container {
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 10px;
+}

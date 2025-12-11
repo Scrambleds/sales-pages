@@ -1,0 +1,19 @@
+<div class="product-image-container">
+  <img
+    [ngSrc]="images[0]"
+    [alt]="title"
+    width="500"
+    height="500"
+    priority
+    class="img-fluid"
+  />
+</div>
+@if (images.length > 1) {
+<div class="row mt-2">
+  @for (img of images; track img) {
+  <div class="col-3 thumbnail-container">
+    <img [src]="img" class="img-thumbnail" />
+  </div>
+  }
+</div>
+}
