@@ -2,10 +2,10 @@
   <button
     class="btn btn-outline-secondary"
     type="button"
-    (click)="decrement()"
+    (click)="qtyChange(quantity - 1)"
     [disabled]="quantity <= 1"
   >
-    -
+    <div class="bi bi-dash"></div>
   </button>
   <input
     type="text"
@@ -13,7 +13,11 @@
     [value]="quantity"
     readonly
   />
-  <button class="btn btn-outline-secondary" type="button" (click)="increment()">
-    +
+  <button
+    class="btn btn-outline-secondary"
+    type="button"
+    (click)="qtyChange(quantity + 1)"
+  >
+    <div class="bi bi-plus"></div>
   </button>
 </div>

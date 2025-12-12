@@ -19,6 +19,7 @@ This application follows Angular best practices with a feature-based architectur
 Contains application-wide services and models that are used throughout the app.
 
 #### Models (`core/models/`)
+
 - **grapesjs.model.ts**: TypeScript interfaces for GrapesJS data structures
   - `GrapesJSPage`: Individual page structure
   - `GrapesJSProject`: Complete project with multiple pages
@@ -27,6 +28,7 @@ Contains application-wide services and models that are used throughout the app.
 #### Services (`core/services/`)
 
 **GrapesJSLoaderService** - Loads customer data
+
 - Fetches project.json and config.json for specific customers
 - Handles subdomain-based customer detection
 - Provides fallback to default customer
@@ -37,6 +39,7 @@ Contains application-wide services and models that are used throughout the app.
   - `getFirstPage()`: Gets the first page (home page)
 
 **PageRendererService** - Renders GrapesJS pages
+
 - Sanitizes HTML content for security
 - Injects CSS dynamically into document head
 - Executes JavaScript safely
@@ -57,6 +60,7 @@ Feature modules organized by business functionality.
 Main component that renders GrapesJS pages dynamically.
 
 **Flow**:
+
 1. Extract customer ID from subdomain
 2. Get page ID from route parameters
 3. Load customer project via `GrapesJSLoaderService`
@@ -64,6 +68,7 @@ Main component that renders GrapesJS pages dynamically.
 5. Display loading/error states appropriately
 
 **Responsibilities**:
+
 - Route parameter handling
 - Customer detection
 - Page loading orchestration
@@ -75,12 +80,14 @@ Main component that renders GrapesJS pages dynamically.
 Standard pages that provide consistent UX across all customers.
 
 **Auth Page** - Authentication
+
 - Login/Signup toggle
 - Form validation ready
 - Clean, modern UI
 - Ready for backend integration
 
 **Cart Page** - Shopping Cart
+
 - Empty cart state
 - Cart item management
 - Quantity controls
@@ -88,6 +95,7 @@ Standard pages that provide consistent UX across all customers.
 - Checkout flow
 
 **Submit Page** - Order Confirmation
+
 - Success message
 - Order details
 - Next steps information
@@ -96,15 +104,18 @@ Standard pages that provide consistent UX across all customers.
 ### 3. Configuration Layer
 
 **app.config.ts** - Client-side configuration
+
 - Router setup
 - Client hydration
 - HTTP client with fetch API
 
 **app.config.server.ts** - SSR configuration
+
 - Server rendering setup
 - Merges with client config
 
 **app.routes.ts** - Application routing
+
 - Lazy-loaded routes for performance
 - Dynamic page routing
 - Default page routes
@@ -268,6 +279,7 @@ server.get('*.*', express.static(browserDistFolder, {
 ### Customizing Rendering
 
 Extend `PageRendererService` to modify how pages are rendered:
+
 - Add custom transformations
 - Inject additional scripts
 - Modify CSS before injection
@@ -290,16 +302,19 @@ interface CustomerConfig {
 ## Testing Strategy
 
 ### Unit Tests
+
 - Test services in isolation
 - Mock HTTP calls
 - Test component logic
 
 ### Integration Tests
+
 - Test service interactions
 - Verify routing
 - Check SSR rendering
 
 ### E2E Tests
+
 - Test full user flows
 - Verify multi-customer isolation
 - Check default pages

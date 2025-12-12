@@ -70,17 +70,20 @@ npm run serve:ssr
 ### 1. Customer Data Loading
 
 The application loads customer data based on subdomain:
+
 - `customer1.yourdomain.com` → loads `/assets/data/customer1/project.json`
 - Falls back to `/assets/data/default/project.json` if customer not found
 
 ### 2. GrapesJS Rendering
 
 [GrapesJSLoaderService](src/app/core/services/grapesjs-loader.service.ts) loads the JSON:
+
 ```typescript
 loadCustomerProject(customerId: string): Observable<GrapesJSProject | null>
 ```
 
 [PageRendererService](src/app/core/services/page-renderer.service.ts) renders the page:
+
 - Sanitizes HTML content
 - Injects CSS into document head
 - Executes JavaScript (if present)
@@ -88,6 +91,7 @@ loadCustomerProject(customerId: string): Observable<GrapesJSProject | null>
 ### 3. Default Pages
 
 Standard pages that cannot be customized by customers:
+
 - **/auth**: Authentication (login/signup)
 - **/cart**: Shopping cart
 - **/submit**: Order confirmation
@@ -97,11 +101,13 @@ These pages maintain consistent UX across all customers.
 ## Adding a New Customer
 
 1. Create a new folder in `public/assets/data/`:
+
 ```bash
 mkdir -p public/assets/data/customer1
 ```
 
 2. Add `project.json` (GrapesJS export):
+
 ```json
 {
   "pages": [
@@ -119,6 +125,7 @@ mkdir -p public/assets/data/customer1
 ```
 
 3. Add `config.json` (optional):
+
 ```json
 {
   "customerId": "customer1",
@@ -173,16 +180,19 @@ Your GrapesJS editor should export in this format:
 ## Best Practices
 
 ### Security
+
 - HTML is sanitized using Angular's `DomSanitizer`
 - All user content is properly escaped
 - CSP headers recommended for production
 
 ### Performance
+
 - SSR for fast initial load
 - Lazy-loaded routes
 - Optimized bundle sizes
 
 ### Maintenance
+
 - Clean code structure
 - TypeScript strict mode
 - Minimal comments (only for complex logic)
@@ -203,6 +213,7 @@ Edit [PageRendererService](src/app/core/services/page-renderer.service.ts) to mo
 ### Multi-Tenant Configuration
 
 Subdomain detection is handled in [DynamicPageComponent](src/app/features/dynamic-page/dynamic-page.component.ts):
+
 ```typescript
 private getCustomerIdFromSubdomain(): string {
   // Extracts customerId from subdomain
@@ -212,6 +223,7 @@ private getCustomerIdFromSubdomain(): string {
 ## Production Deployment
 
 1. Build the application:
+
 ```bash
 npm run build:ssr
 ```

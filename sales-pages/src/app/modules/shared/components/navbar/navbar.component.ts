@@ -33,7 +33,7 @@ export class StoreNavbarComponent {
     private cdr: ChangeDetectorRef,
     private cartService: CartService
   ) {
-    this.cartItemCount = this.cartService.totalItems;
+    this.cartItemCount = this.cartService.totalItemsId;
   }
 
   async ngOnInit(): Promise<void> {
@@ -43,5 +43,9 @@ export class StoreNavbarComponent {
   onClick() {
     this.router.navigate(['/auth']);
     this.cdr.detectChanges();
+  }
+
+  goToCart() {
+    this.router.navigate(['/cart']);
   }
 }

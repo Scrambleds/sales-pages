@@ -1,6 +1,7 @@
 # Folder Restructure Plan - SalesPages.Web Style
 
 ## Current Structure
+
 ```
 src/app/
 ├── core/
@@ -18,6 +19,7 @@ src/app/
 ```
 
 ## New Structure (SalesPages.Web Style)
+
 ```
 src/app/
 ├── core/
@@ -68,6 +70,7 @@ src/app/
 ## Migration Steps
 
 ### Step 1: Move files to new structure
+
 - Move `features/dynamic-page` → `modules/store/components/store-page`
 - Move `features/default-pages/auth` → `modules/auth/components/login`
 - Move `features/default-pages/cart` → `modules/cart/components/cart-list`
@@ -75,19 +78,23 @@ src/app/
 - Move `shared/components/navbar` → `modules/shared/components/navbar`
 
 ### Step 2: Create module-specific services
+
 - `modules/store/services/` - GrapesJS related services
 - `modules/cart/services/` - Cart management
 - `modules/auth/services/` - Authentication
 
 ### Step 3: Create routing files
+
 - Each module will have its own routes file
 - Main app.routes.ts will import from module routes
 
 ### Step 4: Add libs Libraries (when available)
+
 - `@libs/angular-common` - Common utilities
 - libs Asset - UI components and assets
 
 ## Benefits
+
 1. **Better Organization**: Each module is self-contained
 2. **Lazy Loading**: Each module can be lazy-loaded
 3. **Scalability**: Easy to add new modules
@@ -95,6 +102,7 @@ src/app/
 5. **libs Integration**: Ready for libs libraries
 
 ## Next Steps
+
 1. Confirm this structure matches your SalesPages.Web pattern
 2. Begin migration
 3. Set up libs library access (npm token or local link)

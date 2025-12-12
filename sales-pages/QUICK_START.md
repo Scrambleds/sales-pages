@@ -22,6 +22,7 @@ Visit `http://localhost:4200` to see your application.
 ## What You'll See
 
 The default customer's sales page will render with:
+
 - Product cards from GrapesJS JSON
 - CTA banner
 - Footer section
@@ -87,10 +88,12 @@ Access via `mycustomer.yourdomain.com`
 ## Available Routes
 
 ### Dynamic Routes (Customizable)
+
 - `/` - First page from customer's project
 - `/page-id` - Specific page by ID
 
 ### Default Routes (Not Customizable)
+
 - `/auth` - Login/Signup page
 - `/cart` - Shopping cart
 - `/submit` - Order confirmation
@@ -187,11 +190,13 @@ Access at `http://localhost:4000`
 ### Port Already in Use
 
 Change port in development:
+
 ```bash
 ng serve --port 4300
 ```
 
 Change port in production:
+
 ```bash
 PORT=5000 npm run serve:ssr
 ```
@@ -220,6 +225,7 @@ PORT=5000 npm run serve:ssr
 ### Live Reload
 
 Development server supports live reload:
+
 ```bash
 npm start
 # Edit files and see changes automatically
@@ -228,6 +234,7 @@ npm start
 ### Inspect Rendered HTML
 
 Open browser DevTools and check:
+
 - HTML structure in Elements tab
 - CSS in `<style id="dynamic-styles">`
 - Console for JavaScript errors
@@ -284,6 +291,7 @@ Your infrastructure should:
 5. **Monitor** application health
 
 Example workflow:
+
 ```bash
 # Customer updates their design in GrapesJS
 # Export to JSON

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Product } from '../../../core/models/product/productlist.model';
 import { ProductService } from '../../../core/services/product/productservice';
-
+import { SalePricePipe } from '../../shared/pipes/sale-price.pipe';
 @Component({
   selector: 'app-productlist',
-  imports: [CommonModule],
+  imports: [CommonModule, SalePricePipe],
   templateUrl: './productlist.component.html',
   styleUrl: './productlist.component.scss',
 })
@@ -37,10 +37,6 @@ export class ProductlistComponent implements OnInit {
     console.log(`เพิ่มสินค้า ${product.title} จำนวน ${quantity} ลงตะกร้า`);
 
     // this.cartService.addItem(product.id, quantity);
-  }
-
-  getSalePrice(product: Product): number {
-    return product.price * (1 - product.discountPercentage / 100);
   }
 
   viewDetail(id: number) {

@@ -21,8 +21,11 @@ export class CartService {
     }, intervalMs);
   }
 
-  totalItems = computed(() => {
+  totalItemsQty = computed(() => {
     return this.CartItems().reduce((total, item) => total + item.quantity, 0);
+  });
+  totalItemsId = computed(() => {
+    return new Set(this.CartItems().map((item) => item.product.id)).size;
   });
 
   totalPrice = () => {};
@@ -51,5 +54,17 @@ export class CartService {
 
   removeFromCart(productId: number) {}
 
-  updateQuantity(productId: number, quantity: number) {}
+  updateQuantity(productId: number, quantity: number) {
+    this.CartItems.update((items) => {
+      return items.map((item) => {
+        if (item.product.id === productId) {
+          return {
+            ...item,
+            quantity: quantity,
+          };
+        }
+        return item;
+      });
+    });
+  }
 }

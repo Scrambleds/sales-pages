@@ -10,14 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class QuantitySelectorComponent {
   @Input() quantity: number = 1;
-  @Output() increase = new EventEmitter<void>();
-  @Output() decrease = new EventEmitter<void>();
 
-  increment() {
-    this.increase.emit();
-  }
+  @Output() quantityChange = new EventEmitter<number>();
 
-  decrement() {
-    this.decrease.emit();
+  qtyChange(newQuantity: number) {
+    this.quantityChange.emit(newQuantity);
   }
 }

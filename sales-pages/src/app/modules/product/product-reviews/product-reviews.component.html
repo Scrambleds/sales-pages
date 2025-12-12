@@ -3,7 +3,7 @@
     <h3>รีวิว</h3>
     <div class="divider"></div>
     <div class="list-group">
-      @for (review of reviews; track review.reviewerName) {
+      @for (review of reviews; track review.reviewerEmail;) {
       <div class="review-item">
         <div class="d-flex w-100 justify-content-between">
           <p class="mb-1">{{ review.comment }}</p>

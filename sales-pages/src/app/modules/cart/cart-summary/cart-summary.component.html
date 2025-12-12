@@ -1,0 +1,41 @@
+<div class="card border-0 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title mb-4 fw-bold">สรุปการสั่งซื้อ</h5>
+
+    <div class="d-flex justify-content-between mb-2">
+      <span class="text-muted">รวม</span>
+      <span class="fw-medium">{{
+        subtotal() | currency : "THB" : "symbol-narrow" : "1.2-2"
+      }}</span>
+    </div>
+
+    <div class="d-flex justify-content-between mb-3">
+      <span class="text-muted">ภาษีมูลค่าเพิ่ม</span>
+      <span class="fw-medium">{{
+        tax() | currency : "THB" : "symbol-narrow" : "1.2-2"
+      }}</span>
+    </div>
+
+    <hr class="my-3 text-muted opacity-25" />
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <span class="fw-bold">ยอดรวมทั้งสิ้น</span>
+      <span class="fs-4 fw-bold text-primary">{{
+        total() | currency : "THB" : "symbol-narrow" : "1.2-2"
+      }}</span>
+    </div>
+    <div class="d-grid gap-2">
+      @if (1) {
+      <button class="btn btn-primary w-100 py-2 fw-bold rounded-3">
+        สั่งซื้อ ({{ cartService.totalItemsQty() }})
+      </button>
+      } @else {
+      <button class="btn btn-primary w-100 py-2 fw-bold rounded-3">
+        ยืนยันคำสั่งซื้อ
+      </button>
+      <button class="btn btn-outline-secondary w-100 py-2 fw-bold rounded-3">
+        ขอใบเสนอราคา</button
+      >}
+    </div>
+  </div>
+</div>

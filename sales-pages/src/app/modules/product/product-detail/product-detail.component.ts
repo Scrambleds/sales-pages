@@ -41,12 +41,8 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  incrementQuantity() {
-    this.quantity.update((q) => q + 1);
-  }
-
-  decrementQuantity() {
-    this.quantity.update((q) => (q > 1 ? q - 1 : 1));
+  updateQuantity(newQuantity: number) {
+    this.quantity.update(() => newQuantity);
   }
 
   addToCart() {

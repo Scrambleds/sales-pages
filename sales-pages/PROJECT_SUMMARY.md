@@ -7,39 +7,46 @@ Angular 20 SSR application that renders multi-customer sales pages from GrapesJS
 ## Key Features Implemented
 
 ### 1. Angular 20 with SSR
+
 - Latest Angular framework (v20)
 - Server-side rendering for SEO and performance
 - Full TypeScript strict mode
 - Standalone components architecture
 
 ### 2. GrapesJS Integration
+
 - Loads and renders GrapesJS JSON exports
 - Dynamic HTML/CSS/JS injection
 - Secure content sanitization
 - Global and page-specific styles/scripts support
 
 ### 3. Multi-Customer Support
+
 - Subdomain-based customer detection
 - Isolated data per customer
 - Fallback to default customer
 - Easy to add new customers (just add folder)
 
 ### 4. Default Pages (Pre-built)
+
 All ready to use, just need backend integration:
 
 **Auth Page** ([/auth](src/app/features/default-pages/auth/))
+
 - Login/Signup toggle
 - Form validation ready
 - Modern UI design
 - Ready for API integration
 
 **Cart Page** ([/cart](src/app/features/default-pages/cart/))
+
 - Empty cart state
 - Item management (add/remove/update quantity)
 - Order summary calculation
 - Checkout flow prepared
 
 **Submit Page** ([/submit](src/app/features/default-pages/submit/))
+
 - Order confirmation
 - Order details display
 - Success animation
@@ -48,14 +55,17 @@ All ready to use, just need backend integration:
 ### 5. Clean Architecture
 
 **Core Layer** ([src/app/core/](src/app/core/))
+
 - Models: TypeScript interfaces for type safety
 - Services: Business logic separated from UI
 
 **Features Layer** ([src/app/features/](src/app/features/))
+
 - Dynamic Page: Renders GrapesJS content
 - Default Pages: Standard pages for all customers
 
 **Configuration**
+
 - Separate client and server configs
 - Lazy-loaded routes for performance
 - Path aliases for clean imports
@@ -172,35 +182,41 @@ npm run serve:ssr      # Serve SSR build (port 4000)
 ## Best Practices Implemented
 
 ### 1. Code Organization
+
 - Feature-based architecture
 - Clear separation of concerns
 - Single responsibility principle
 - No circular dependencies
 
 ### 2. Type Safety
+
 - TypeScript strict mode enabled
 - All interfaces properly typed
 - No `any` types used
 
 ### 3. Performance
+
 - Lazy-loaded routes
 - SSR for fast initial load
 - Optimized bundle sizes
 - Static asset caching
 
 ### 4. Security
+
 - HTML sanitization (DomSanitizer)
 - Safe script execution
 - Platform checks (browser vs server)
 - XSS prevention
 
 ### 5. Maintainability
+
 - Clean code structure
 - Minimal comments (only for complex logic)
 - Consistent naming conventions
 - Easy to extend
 
 ### 6. Scalability
+
 - Multi-customer ready
 - File-based data (easy to replace)
 - Horizontal scaling support
@@ -209,6 +225,7 @@ npm run serve:ssr      # Serve SSR build (port 4000)
 ## What's Ready to Use
 
 ### Immediately Ready
+
 1. ✅ Project structure
 2. ✅ Angular 20 SSR setup
 3. ✅ GrapesJS renderer
@@ -220,6 +237,7 @@ npm run serve:ssr      # Serve SSR build (port 4000)
 9. ✅ Documentation
 
 ### Needs Backend Integration
+
 1. Authentication (Auth page has UI ready)
 2. Shopping cart persistence
 3. Order submission
@@ -227,6 +245,7 @@ npm run serve:ssr      # Serve SSR build (port 4000)
 5. Payment processing
 
 ### Needs Infrastructure Setup
+
 1. Subdomain routing
 2. Customer data deployment pipeline
 3. SSL/HTTPS certificates
@@ -238,6 +257,7 @@ npm run serve:ssr      # Serve SSR build (port 4000)
 **Simple 3-Step Process:**
 
 1. Create folder:
+
 ```bash
 mkdir -p public/assets/data/newcustomer
 ```
@@ -251,30 +271,37 @@ That's it! Customer is ready.
 ## Extending the Application
 
 ### Add New Default Page
+
 1. Create component in `src/app/features/default-pages/`
 2. Add route in `app.routes.ts`
 3. Done!
 
 ### Customize Rendering
+
 Edit `PageRendererService` to modify how pages render.
 
 ### Add New Services
+
 Add to `src/app/core/services/` and inject where needed.
 
 ### Add Customer Features
+
 Extend `CustomerConfig` interface and use in components.
 
 ## Production Deployment
 
 ### Build
+
 ```bash
 npm run build:ssr
 ```
 
 ### Deploy
+
 Upload `dist/sales-page/` to your server.
 
 ### Configure
+
 - Set environment variables
 - Configure subdomain routing
 - Set up SSL
@@ -315,12 +342,14 @@ Your infrastructure should implement this flow:
 ## Testing Recommendations
 
 ### Manual Testing
+
 1. Test each default page
 2. Test with sample customer data
 3. Test subdomain detection
 4. Test SSR rendering
 
 ### Automated Testing
+
 1. Unit tests for services
 2. Component tests for pages
 3. Integration tests for data flow
@@ -349,6 +378,7 @@ Your infrastructure should implement this flow:
 ## Summary
 
 You now have a fully structured Angular 20 SSR application that:
+
 - ✅ Renders GrapesJS pages dynamically
 - ✅ Supports multiple customers with isolated data
 - ✅ Provides default Auth, Cart, and Submit pages

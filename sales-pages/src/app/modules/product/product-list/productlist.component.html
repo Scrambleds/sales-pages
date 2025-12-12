@@ -27,7 +27,7 @@
 
           <div class="product-price-section mt-1 d-flex align-items-center">
             <span class="price-sale me-2">
-              ${{ getSalePrice(product) | number : "1.2-2" }}
+              ${{ product | salePrice | number : "1.2-2" }}
             </span>
 
             <span class="price-original">
