@@ -1,3 +1,5 @@
 .store-content {
   min-height: calc(100vh - 70px);
+  background: #f7f7f7;
+  display: flow-root; // Prevent margin collapse
 }
