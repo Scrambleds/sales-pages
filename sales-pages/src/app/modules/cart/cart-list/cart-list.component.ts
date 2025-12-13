@@ -12,13 +12,6 @@ import { QuantitySelectorComponent } from '../../shared/components/quantity-sele
 export class CartListComponent {
   cartService = inject(CartService);
 
-  incrementQuantity(productId: number, currentQuantity: number) {
-    this.cartService.updateQuantity(productId, currentQuantity + 1);
-  }
-  decrementQuantity(productId: number, currentQuantity: number) {
-    this.cartService.updateQuantity(productId, currentQuantity - 1);
-  }
-
   updateQuantity(productId: number, newQuantity: number) {
     this.cartService.updateQuantity(productId, newQuantity);
   }

@@ -1,11 +1,18 @@
 <div class="container my-5 cart-detail-container">
+  @if (cartService.CartItems().length === 0) {
+  <div class="p-5 text-center text-muted">
+    <i class="bi bi-cart-x display-1 mb-3 opacity-50"></i>
+    <p class="fs-5">ไม่มีสินค้าในตะกร้า</p>
+  </div>
+  } @else {
   <div class="row">
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8 mb-md-0">
       <app-cart-list></app-cart-list>
     </div>
     <div class="col-12 col-md-4">
       <app-cart-summary></app-cart-summary>
     </div>
   </div>
+  }
 </div>
 <!-- <p>cart-detail works!</p> -->

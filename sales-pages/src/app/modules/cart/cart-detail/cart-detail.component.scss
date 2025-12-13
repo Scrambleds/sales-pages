@@ -1,0 +1,14 @@
+@media (max-width: 1024px) {
+  .cart-detail-container .row {
+    flex-direction: column !important;
+  }
+  .cart-detail-container .col-md-8,
+  .cart-detail-container .col-md-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .cart-detail-container .col-md-8 {
+    margin-bottom: 1rem !important;
+  }
+}
