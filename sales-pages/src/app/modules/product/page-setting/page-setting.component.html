@@ -1,12 +1,14 @@
 <div class="d-flex align-items-center gap-2">
   <label class="mb-0 small text-muted text-nowrap fw-bold">แสดง:</label>
   <div class="page-size-select-wrapper">
-    <select 
-      class="form-select form-select-sm" 
-      [value]="selectedLimit" 
+    <select
+      class="form-select form-select-sm"
+      [value]="selectedLimit"
       (change)="onLimitChange($event)"
     >
-      <option *ngFor="let limit of limits" [value]="limit">{{ limit }}</option>
+      @for (limit of limits ; track limit) {
+      <option value="{{ limit }}">{{ limit }}</option>
+      }
     </select>
   </div>
   <span class="small text-muted text-nowrap fw-bold">รายการ/หน้า</span>
